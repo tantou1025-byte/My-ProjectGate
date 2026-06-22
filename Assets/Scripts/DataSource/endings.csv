@@ -1,0 +1,11 @@
+EndingId,Name,Type,Condition
+1,True End,Basic,信用度80以上+名無し最終局面で正しい判定+正体を完全解明
+2,Good End,Basic,信用度50以上+名無し最終局面で正しい判定(完全解明でなくても可)
+3,Bad End A 施設閉鎖,Basic,信用度が0に到達した時点で即時終了
+4,Bad End B 見逃し,Basic,信用度は保てたが名無しを最終局面で見逃した(誤判定)
+5,双子の片割れ・個別End,Character,双子ルートの攻略条件を満たす
+6,元職員の老婆・個別End,Character,老婆ルートの攻略条件を満たす
+7,逃亡者の女・個別End,Character,逃亡者ルートの攻略条件を満たす
+8,産婆を探す妊婦・個別End,Character,妊婦ルートの攻略条件を満たす
+9,蘇りの母・個別End,Character,蘇りの母ルートの攻略条件を満たす(誤判定時の特殊Endを含む)
+10,名無し・専用End,Character,名無しの攻略ルート(True Endとは別軸)の条件を満たす

@@ -1,0 +1,12 @@
+[Tt]emp/
+[Ll]ibrary/
+[Ll]ogs/
+[Oo]bj/
+[Bb]uild/
+[Bb]uilds/
+.vs/
+*.csproj
+*.sln
+*.suo
+*.user
+*.userprefs・1
