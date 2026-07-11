@@ -1,6 +1,20 @@
 # ローカルClaude Code 実装指示書 Phase 1
 ## ■ このドキュメントはローカル側でのみ有効です。クラウドClaude からの委譲指示
 
+> ## ⚠️ 重要：このドキュメントは自動では実行されません
+>
+> GitHubに置かれただけでは、ローカルのClaude Codeはこのファイルの存在を知りません。
+> **ユーザー（あつきさん）が以下のいずれかを行うことが、唯一の実行トリガーです：**
+>
+> - **方法A（推奨）**: GitHubでこのファイルを開き、全文コピーして、ローカルPCの
+>   Claude Code（TsukimonoTanプロジェクトで起動中のターミナル）に貼り付けて
+>   「この指示書を実行して」と伝える
+> - **方法B**: ローカルのClaude Codeに次の1行を貼る：
+>   「https://github.com/tantou1025-byte/My-ProjectGate の
+>   claude/tsukimono-demo-scene-j6seey ブランチから
+>   Assets/TsukimonoTan/Docs/LOCAL_DIRECTIVE_phase1.md を取得して実行して」
+>   （ローカル側にGitHubアクセス権が無い場合は方法Aを使う）
+
 このファイルをローカルのUnityプロジェクト側で開いている Claude Code に読み込ませて実行してください。
 
 ---
