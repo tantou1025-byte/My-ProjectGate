@@ -10,3 +10,6 @@
 *.suo
 *.user
 *.userprefs・1
+# Python
+__pycache__/
+*.pyc
