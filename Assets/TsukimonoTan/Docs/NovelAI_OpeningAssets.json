@@ -1,0 +1,132 @@
+{
+  "metadata": {
+    "title": "Opening シーン — Yokai スピリット画像生成設定",
+    "version": "1.0",
+    "context": "憑物譚 Opening ムービー背景用キャラクター画像",
+    "created": "2026-07-11"
+  },
+  "novelai_config": {
+    "image_generation": {
+      "prompt": {
+        "primary": "beautiful ethereal female yokai spirit, glowing eyes, elegant pose, flowing dark robes, muted colors, dark fantasy art, soft lighting, high quality, smooth, detailed",
+        "ja_reference": "美しき幻想的な女性妖怪スピリット、光る瞳、優雅なポーズ、流れるような暗いローブ、落ち着いた色合い、ダークファンタジーアート、柔らかい照明、高品質、滑らか、詳細",
+        "notes": "和風ダークファンタジーの妖怪イメージ。Opening（約30秒）の背景に配置するため、優雅さと神秘性を重視"
+      },
+      "negative_prompt": [
+        "watermark",
+        "signature",
+        "blurry",
+        "distorted",
+        "ugly",
+        "deformed"
+      ],
+      "settings": {
+        "size": {
+          "width": 512,
+          "height": 768,
+          "alternative": "400x600",
+          "rationale": "Opening Canvas 縦長（1920×1080 スクリーンでは16:9。背景用に縦長推奨）"
+        },
+        "steps": {
+          "value": 28,
+          "range": "20-36",
+          "default_recommendation": 28,
+          "rationale": "Anlas コスト × 品質のバランス。28-32 推奨"
+        },
+        "sampler": {
+          "value": "Euler",
+          "alternatives": ["DPM++ 2M Karras", "Ancestral Sampler"],
+          "rationale": "安定・再現性。DPM++ はより詳細だが時間増"
+        },
+        "scale": {
+          "value": 5.0,
+          "range": "4.0-7.0",
+          "rationale": "プロンプト忠実度。5.0 は標準。高すぎると歪み増加"
+        },
+        "seed": {
+          "value": null,
+          "type": "random",
+          "rationale": "毎回異なる画像。固定する場合は任意の数値"
+        },
+        "batch_count": {
+          "value": 1,
+          "for_multiple_candidates": "3-4",
+          "rationale": "複数案を比較する場合は複数生成。1 が基本"
+        }
+      }
+    }
+  },
+  "output_files": {
+    "original": {
+      "filename": "spirit_yokai_opening.png",
+      "location": "Assets/TsukimonoTan/Resources/Sprites/Opening/",
+      "format": "PNG (from NovelAI)",
+      "size": "512x768"
+    },
+    "processed": {
+      "filename": "spirit_yokai_opening_transparent.png",
+      "location": "Assets/TsukimonoTan/Resources/Sprites/Opening/",
+      "format": "RGBA PNG (after rembg)",
+      "size": "512x768 (same as original)",
+      "processing": "rembg で背景除去"
+    }
+  },
+  "quality_checklist": [
+    "✓ 妖怪らしい優雅さと神秘性がある",
+    "✓ 瞳が光っている（glowing eyes）",
+    "✓ ローブが流動的に見える",
+    "✓ 色が落ち着いている（深紫・黒・赤系。明るすぎない）",
+    "✓ アーティファクト（不自然な歪み）が最小限",
+    "✓ Opening Canvas（1920×1080）の背景として映える縦長構図",
+    "✓ TextMesh Pro ナレーション・タイトルと色合いが調和"
+  ],
+  "color_palette": {
+    "project_palette": {
+      "deep_dark_purple": "#0a0e27",
+      "gold": "#d4af37",
+      "crimson": "#c41e3a",
+      "washi_white": "#f5f0e6"
+    },
+    "image_recommendation": "上記パレットとの統一感。特に深紫黒と紅を含む落ち着いた色合い"
+  },
+  "regeneration_guide": {
+    "if_unsatisfied": "以下のいずれかを試す",
+    "options": [
+      {
+        "step": "Seed 変更",
+        "action": "別の Seed 値で再生成",
+        "cost": "同じ Anlas"
+      },
+      {
+        "step": "Prompt 微調整",
+        "examples": [
+          "\"glowing red eyes\" を追加",
+          "\"black robes\" を強調",
+          "\"muted palette\" を指定"
+        ],
+        "cost": "同じ Anlas"
+      },
+      {
+        "step": "Steps 増加",
+        "from": 28,
+        "to": 36,
+        "effect": "より詳細・精密な描画",
+        "cost": "Anlas ×1.3"
+      },
+      {
+        "step": "Sampler 変更",
+        "from": "Euler",
+        "to": "DPM++ 2M Karras",
+        "effect": "より繊細な仕上げ",
+        "cost": "同じ Anlas"
+      }
+    ]
+  },
+  "next_steps": [
+    "1. NovelAI で生成 → spirit_yokai_opening.png",
+    "2. rembg で背景除去 → spirit_yokai_opening_transparent.png",
+    "3. Assets にインポート & Sprite 設定",
+    "4. OpeningDirector.cs へ統合",
+    "5. Unity で再生確認"
+  ]
+}
