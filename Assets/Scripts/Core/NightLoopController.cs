@@ -30,6 +30,13 @@ namespace ProjectGate.Core
 
         private void Start()
         {
+            if (gaugeManager == null)
+            {
+                Debug.LogError("[ProjectGate] NightLoopController に GaugeManager が割り当てられていません。", this);
+                enabled = false;
+                return;
+            }
+
             gaugeManager.OnTrustDepleted += HandleGameOver;
             gaugeManager.OnFocusDepleted += HandleFocusDepleted;
             gaugeManager.ResetForNewNight(currentNightNumber);
@@ -88,8 +95,12 @@ namespace ProjectGate.Core
 
         public void MakeJudgment(bool playerChoseToPass)
         {
-            bool wasCorrect = playerChoseToPass == CurrentVisitor.groundTruthIsHuman;
-            bool rejectedHuman = !wasCorrect && playerChoseToPass == false && CurrentVisitor.groundTruthIsHuman;
+            // 夜がクリア済み(来訪者を全員さばいた後)に呼ばれてもNREにならないようにする
+            var visitor = CurrentVisitor;
+            if (visitor == null) return;
+
+            bool wasCorrect = playerChoseToPass == visitor.groundTruthIsHuman;
+            bool rejectedHuman = !wasCorrect && playerChoseToPass == false && visitor.groundTruthIsHuman;
             gaugeManager.ApplyJudgmentResult(wasCorrect, rejectedHuman);
 
             if (gaugeManager.trust > 0f)
